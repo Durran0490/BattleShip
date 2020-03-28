@@ -17,10 +17,11 @@ public class BattleShip extends HttpServlet {
         try (PrintWriter out = resp.getWriter()) {
             out.println("<html>");
             out.println("<body>");
-            out.println("<h1>Hello " + name + "!</h1>");
+            out.println("<h1>Hello " + name.trim() + "!</h1>");
+            out.println("<h1>Welcome to the game</h1>");
             out.println("</html>");
             out.println("</body>");
         }
-        System.out.println(String.format("[%s] User's name input (\"%s\")",new Date(),name));
+        System.out.println(String.format("[%s] User's name input (\"%s\")",new Date(),name.trim()));
     }
 }
