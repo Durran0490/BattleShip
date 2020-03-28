@@ -3,39 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>BattleShip</title>
+    <link rel="icon" href="icon_BS.png">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 <style>
-    body,h1 {font-family: "Raleway", sans-serif}
-    body, html {height: 100%}
-    .backgroundImage {
+    body, h1 {
+        font-family: "Raleway", sans-serif
+    }
+
+    body, html {
+        height: 100%
+    }
+
+    .background-image {
         background-image: url("background.png");
-        background-color: lightseagreen;
+        background-color: slategrey;
         min-height: 100%;
         background-position: center;
         background-size: cover;
     }
-    .loginField{
-        margin-left: 38%;
+
+    .text-size-25 {
+        margin: 8px;
+        font-size: 25px;
+    }
+
+    .my-button {
+        font-weight: bold;
+        color: rgb(181, 181, 181);
+        margin-left: 5px;
+        height: 30px;
+        border-style: outset;
+        border-color: rgb(181, 255, 249);
+        background-color: white;
+    }
+
+    .my-button:active {
+        transform: translateY(1px);
+        border-style: inset;
+        border-color: rgb(181, 255, 249);
+    }
+
+    .my-button:hover {
+        color: rgb(110, 110, 110);
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     }
 </style>
 <body>
-<div class="backgroundImage w3-display-container w3-animate-opacity w3-text-white">
+<div class="background-image w3-display-container w3-animate-opacity w3-text-white">
     <div class="w3-display-middle">
         <h1 class="w3-jumbo w3-animate-top">UNTITLED BATTLESHIP GAME</h1>
-        <hr class="w3-border-grey" style="margin:auto;width:40%">
-        <p class="w3-large w3-center">ENTER YOUR NICKNAME</p>
-        <form class="loginField" action="/login">
-             <input name="name"/>
-            <button id="loginButton" type="submit">Go</button>
+        <hr class="w3-border-grey" style="margin:auto;width:60%">
+        <p class="text-size-25 w3-center">ENTER YOUR NICKNAME</p>
+        <form class="w3-center" action="/login">
+            <input name="name" maxlength="15"/>
+            <button class="my-button " type="submit">START GAME</button>
         </form>
     </div>
     <div class="w3-display-bottomleft w3-padding-large">
         Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
     </div>
-    <div class="w3-display-bottomright w3-padding-large w3-xlarge">
-        <a href="https://github.com/Durran0490" target="_blank">GitHUB
+    <div class="w3-display-bottomright w3-padding-large w3-large">
+        <a href="https://github.com/Durran0490/BattleShip" target="_blank">GitHub
             <img src="GitHub-Mark-Light-32px.png" alt="HTML tutorial">
         </a>
     </div>
