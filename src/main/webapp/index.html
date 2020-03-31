@@ -56,8 +56,8 @@
         <h1 class="w3-jumbo w3-animate-top">UNTITLED BATTLESHIP GAME</h1>
         <hr class="w3-border-grey" style="margin:auto;width:60%">
         <p class="text-size-25 w3-center">ENTER YOUR NICKNAME</p>
-        <form class="w3-center" action="/login">
-            <input name="name" maxlength="15"/>
+        <form class="w3-center" action="/start" method="post">
+            <input type="text" required name = "name" maxlength="15"/>
             <button class="my-button " type="submit">START GAME</button>
         </form>
     </div>
