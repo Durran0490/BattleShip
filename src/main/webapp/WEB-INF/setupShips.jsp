@@ -11,9 +11,15 @@
 <html>
 <head>
     <title>BattleShip</title>
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<form action="/setup" method="get">
+
+<form action="/setup" method="post">
     <table>
         <tr>
             <td></td>
@@ -36,10 +42,14 @@
             </tr>
         </c:forEach>
     </table>
-    <c:if test="${not empty requestScope.message}">
-        <h2>${requestScope.message}</h2>
+    <c:if test="${not empty requestScope.warningMessage}">
+        <h2>${requestScope.warningMessage}</h2>
+    </c:if>
+    <c:if test="${not empty requestScope.wrongPlacedCells}">
+        <h2>${requestScope.wrongPlacedCells}</h2>
     </c:if>
     <button type="submit">START</button>
 </form>
+
 </body>
 </html>
