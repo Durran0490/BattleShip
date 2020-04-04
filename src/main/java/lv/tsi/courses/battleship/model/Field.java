@@ -1,6 +1,6 @@
 package lv.tsi.courses.battleship.model;
 
-import lv.tsi.courses.battleship.InfoMsg;
+import lv.tsi.courses.battleship.infoOutput.InfoMsg;
 
 import java.util.*;
 
@@ -50,7 +50,6 @@ public class Field {
              for (Map.Entry<String, CellState> otherCells : cells.entrySet())  {
                  for (String diagCell : diagonalCells) {
                     if (otherCells.getKey().equals(diagCell)) {
-                        new InfoMsg("", "cell " + diagCell + " has diagonal connection");
                         if(!list.contains(otherCells.getKey())) {
                             list.add(otherCells.getKey());
                         }

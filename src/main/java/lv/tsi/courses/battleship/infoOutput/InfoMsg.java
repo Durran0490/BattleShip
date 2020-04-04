@@ -1,4 +1,4 @@
-package lv.tsi.courses.battleship;
+package lv.tsi.courses.battleship.infoOutput;
 
 import java.util.Date;
 

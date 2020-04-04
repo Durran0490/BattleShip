@@ -32,7 +32,7 @@
         background-size: cover;
     }
 
-    .text-size-25 {
+    .text-size-30 {
         margin: 8px;
         font-size: 25px;
     }
@@ -40,16 +40,15 @@
         margin: 8px;
         font-size: 40px;
     }
-
 </style>
 <body>
-<div class="background-image w3-display-container w3-animate-opacity w3-text-white">
+<div class="background-image w3-display-container w3-text-white">
     <div class="w3-display-middle">
         <h1 class="w3-jumbo ">UNTITLED BATTLESHIP GAME</h1>
         <hr class="w3-border-grey" style="margin:auto;width:60%">
-        <p class="text-size-25 w3-center">WELCOME</p>
+        <p class="text-size-30 w3-center">WELCOME</p>
         <p class="text-size-40 w3-center">"${sessionScope.player.name}"</p>
-        <p class="text-size-25 w3-center">Please wait for second player...</p>
+        <p class="text-size-30 w3-center">Please wait for second player...</p>
     </div>
     <div class="w3-display-bottomleft w3-padding-large">
         Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
