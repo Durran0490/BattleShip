@@ -14,4 +14,5 @@ public class Game {
     public boolean isReady(){
         return player1 != null && player2 !=null;
     }
+    public boolean isShipsReady(){return player1.isShipsSet() && player2.isShipsSet();}
 }

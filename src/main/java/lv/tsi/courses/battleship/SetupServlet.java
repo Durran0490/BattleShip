@@ -22,7 +22,7 @@ public class SetupServlet extends HttpServlet {
 
         var player = (Player) req.getSession().getAttribute("player");
         var messenger = (ConsoleMessage) req.getServletContext().getAttribute("consoleMessage");
-
+        var game = (Game) req.getSession().getAttribute("game");
         player.getOwnField().clear();
 
         if (selected != null) {
@@ -34,9 +34,14 @@ public class SetupServlet extends HttpServlet {
         }
 
         if (player.getOwnField().isValid()) {
-            resp.sendRedirect("/waitSetup");
-            messenger.write(player.getName(), "has finished setup");
-            return;
+            player.setShipsSet(true);
+            if (game.isShipsReady()) {
+                resp.sendRedirect("/game");
+            }else {
+                req.getRequestDispatcher("/WEB-INF/waitSetup.jsp").include(req, resp);;
+                messenger.write(player.getName(), "has finished setup");
+                return;
+            }
         } else {
             if (selected != null) {
                 if (player.getOwnField().getListOfMisplacedCells().size() != 0) {
@@ -78,9 +83,13 @@ public class SetupServlet extends HttpServlet {
             req.getRequestDispatcher("WEB-INF/waitOpponentLogin.jsp").include(req, resp);
             return;
         } else if (player.getOwnField().isValid()) {
-            resp.sendRedirect("/waitSetup");
-            messenger.write(player.getName(), "has finished setup");
-            return;
+            if (game.isShipsReady()) {
+                resp.sendRedirect("/game");
+            }else {
+                req.getRequestDispatcher("/WEB-INF/waitSetup.jsp").include(req, resp);;
+                messenger.write(player.getName(), "has finished setup");
+                return;
+            }
         }
         req.getRequestDispatcher("/WEB-INF/setupShips.jsp").include(req, resp);
     }
