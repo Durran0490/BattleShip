@@ -49,7 +49,7 @@
             color: white;
             background-color: red;
             opacity: 50%;
-            width: 30%;
+            width: 35%;
             height: auto;
             border: 0px solid darkred;
             padding: 5px;
@@ -167,6 +167,7 @@
 
         td {
             text-align: center;
+
         }
 
     </style>
@@ -227,7 +228,7 @@
         </div>
         <div class="w3-display-bottomright w3-padding-large w3-large">
             <a href="https://github.com/Durran0490/BattleShip" target="_blank">GitHub
-                <img src="res/GitHub-Mark-Light-32px.png" alt="HTML tutorial">
+                <img src="res/GitHub-Mark-Light-32px.png">
             </a>
         </div>
     </div>

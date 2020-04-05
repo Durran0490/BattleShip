@@ -24,6 +24,7 @@
         height: 100%
     }
 
+
     .background-image {
         background-image: url("../res/background.png");
         background-color: slategrey;
@@ -55,7 +56,7 @@
     </div>
     <div class="w3-display-bottomright w3-padding-large w3-large">
         <a href="https://github.com/Durran0490/BattleShip" target="_blank">GitHub
-            <img src="res/GitHub-Mark-Light-32px.png" alt="HTML tutorial">
+            <img src="res/GitHub-Mark-Light-32px.png">
         </a>
     </div>
 </div>

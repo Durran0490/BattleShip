@@ -1,12 +1,11 @@
 package lv.tsi.courses.battleship.model;
 
-import lv.tsi.courses.battleship.infoOutput.InfoMsg;
-
 import java.util.*;
 
 public class Field {
+    private CellChecker cellChecker = new CellChecker();
     private Map<String, CellState> cells = new HashMap<>();
-    private  ArrayList<String> listOfMisplacedCells = new ArrayList<>();
+    private ArrayList<String> listOfMisplacedCells = new ArrayList<>();
 
     public CellState getState(String addr) {
         return cells.getOrDefault(addr, CellState.EMPTY);
@@ -25,13 +24,14 @@ public class Field {
     }
 
     public boolean isValid() {
-        if(cells != null){
-            if(cells.size() != 0){
+        if (cells != null) {
+            if (cells.size() != 0) {
                 listOfMisplacedCells = diagonalConnection();
             }
-        }
-        if(cells.values().stream().filter(s -> s == CellState.SHIP).count() == 20){
-            return listOfMisplacedCells.size() == 0;
+            if (cells.values().stream().filter(s -> s == CellState.SHIP).count() == 20) {
+                return listOfMisplacedCells.size() == 0;
+            }
+            return false;
         }
         return false;
     }
@@ -40,18 +40,16 @@ public class Field {
         ArrayList<String> list = new ArrayList<>();
         ArrayList<String> diagonalCells;
 
-        var cellChecker = new CellChecker();
+        for (Map.Entry<String, CellState> cellWithShips : cells.entrySet()) {
 
-        for (Map.Entry<String, CellState> cell : cells.entrySet()) {
-
-            cellChecker.setCell(cell.getKey());
+            cellChecker.setCell(cellWithShips.getKey());
             diagonalCells = cellChecker.diagonalCells();
 
-             for (Map.Entry<String, CellState> otherCells : cells.entrySet())  {
-                 for (String diagCell : diagonalCells) {
-                    if (otherCells.getKey().equals(diagCell)) {
-                        if(!list.contains(otherCells.getKey())) {
-                            list.add(otherCells.getKey());
+            for (Map.Entry<String, CellState> otherShips : cells.entrySet()) {
+                for (String diagCell : diagonalCells) {
+                    if (otherShips.getKey().equals(diagCell)) {
+                        if (!list.contains(otherShips.getKey())) {
+                            list.add(otherShips.getKey());
                         }
                     }
                 }
@@ -89,35 +87,19 @@ public class Field {
         }
 
         private String upperRight() {
-            if (letter.equals("J") || number.equals("1")) {
-                return null;
-            } else {
-                return cellLetter.get(cellLetter.indexOf(letter) + 1) + cellNumber.get(cellNumber.indexOf(number) - 1);
-            }
+            return (letter.equals("J") || number.equals("1")) ? null : cellLetter.get(cellLetter.indexOf(letter) + 1) + cellNumber.get(cellNumber.indexOf(number) - 1);
         }
 
         private String lowerRight() {
-            if (letter.equals("J") || number.equals("10")) {
-                return null;
-            } else {
-                return cellLetter.get(cellLetter.indexOf(letter) + 1) + cellNumber.get(cellNumber.indexOf(number) + 1);
-            }
+            return (letter.equals("J") || number.equals("10")) ? null : cellLetter.get(cellLetter.indexOf(letter) + 1) + cellNumber.get(cellNumber.indexOf(number) + 1);
         }
 
         private String lowerLeft() {
-            if (letter.equals("A") || number.equals("10")) {
-                return null;
-            } else {
-                return cellLetter.get(cellLetter.indexOf(letter) - 1) + cellNumber.get(cellNumber.indexOf(number) + 1);
-            }
+            return (letter.equals("A") || number.equals("10")) ? null : cellLetter.get(cellLetter.indexOf(letter) - 1) + cellNumber.get(cellNumber.indexOf(number) + 1);
         }
 
         private String upperLeft() {
-            if (letter.equals("A") || number.equals("1")) {
-                return null;
-            } else {
-                return cellLetter.get(cellLetter.indexOf(letter) - 1) + cellNumber.get(cellNumber.indexOf(number) - 1);
-            }
+            return (letter.equals("A") || number.equals("1")) ? null : cellLetter.get(cellLetter.indexOf(letter) - 1) + cellNumber.get(cellNumber.indexOf(number) - 1);
         }
     }
 

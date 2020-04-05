@@ -1,5 +1,6 @@
 package lv.tsi.courses.battleship;
 
+import lv.tsi.courses.battleship.console.messages.ConsoleMessage;
 import lv.tsi.courses.battleship.model.Game;
 import lv.tsi.courses.battleship.model.GameManager;
 import lv.tsi.courses.battleship.model.Player;
@@ -10,10 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 
-//        System.out.println(String.format("[%s] User's name input (\"%s\")",new Date(),name.trim()));
 
 @WebServlet(urlPatterns = "/start")
 public class BattleShipServlet extends HttpServlet {
@@ -25,6 +23,7 @@ public class BattleShipServlet extends HttpServlet {
         player.setName(name);
 
         var gameMgr = (GameManager) req.getServletContext().getAttribute("gameManager");
+        var messenger = (ConsoleMessage) req.getServletContext().getAttribute("consoleMessage");
 
         var game = gameMgr.getIncompleteGameAndJoin(player);
 
@@ -32,6 +31,7 @@ public class BattleShipServlet extends HttpServlet {
         req.getSession().setAttribute("player", player);
 
         req.getRequestDispatcher("WEB-INF/waitOpponentLogin.jsp").include(req, resp);
+        messenger.write(player.getName(),"Entered in queue");
     }
 
     @Override
