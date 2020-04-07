@@ -27,7 +27,7 @@ public class Field {
         return cells.containsValue(CellState.SHIP);
     }
 
-//TODO required count of ships changed to 1 for testing purposes
+/** required count of ships changed to 1 for testing purposes**/
     public boolean isValid() {
         if (cells != null) {
             if (cells.size() != 0) {

@@ -46,7 +46,6 @@ public class Game {
         return getActivePlayer() == player;
     }
 
-    //TODO rewrite this after lesson
     public synchronized void fire(String addr) {
         var opponent = getInactivePlayer();
         var player = getActivePlayer();
