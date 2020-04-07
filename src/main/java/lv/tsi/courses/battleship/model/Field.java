@@ -23,12 +23,17 @@ public class Field {
         cells.clear();
     }
 
+    public boolean hasShips(){
+        return cells.containsValue(CellState.SHIP);
+    }
+
+//TODO required count of ships changed to 1 for testing purposes
     public boolean isValid() {
         if (cells != null) {
             if (cells.size() != 0) {
                 listOfMisplacedCells = diagonalConnection();
             }
-            if (cells.values().stream().filter(s -> s == CellState.SHIP).count() == 20) {
+            if (cells.values().stream().filter(s -> s == CellState.SHIP).count() >= 1) {
                 return listOfMisplacedCells.size() == 0;
             }
             return false;

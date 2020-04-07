@@ -4,6 +4,7 @@ import lv.tsi.courses.battleship.console.messages.ConsoleMessage;
 import lv.tsi.courses.battleship.model.CellState;
 import lv.tsi.courses.battleship.model.Game;
 import lv.tsi.courses.battleship.model.Player;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,8 +38,9 @@ public class SetupServlet extends HttpServlet {
             player.setShipsSet(true);
             if (game.isShipsReady()) {
                 resp.sendRedirect("/game");
-            }else {
-                req.getRequestDispatcher("/WEB-INF/waitSetup.jsp").include(req, resp);;
+            } else {
+                req.getRequestDispatcher("/WEB-INF/waitSetup.jsp").include(req, resp);
+                ;
                 messenger.write(player.getName(), "has finished setup");
                 return;
             }
@@ -85,9 +87,9 @@ public class SetupServlet extends HttpServlet {
         } else if (player.getOwnField().isValid()) {
             if (game.isShipsReady()) {
                 resp.sendRedirect("/game");
-            }else {
-                req.getRequestDispatcher("/WEB-INF/waitSetup.jsp").include(req, resp);;
-                messenger.write(player.getName(), "has finished setup");
+            } else {
+                req.getRequestDispatcher("/WEB-INF/waitSetup.jsp").include(req, resp);
+//                messenger.write(player.getName(), "has finished setup");
                 return;
             }
         }
