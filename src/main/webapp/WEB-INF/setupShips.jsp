@@ -178,10 +178,6 @@
             background: #6de4fc;
         }
 
-        /*.styled-checkbox:focus:before {*/
-        /*    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);*/
-        /*}*/
-
         .styled-checkbox:checked:before {
             background: #6dfc9f;
         }

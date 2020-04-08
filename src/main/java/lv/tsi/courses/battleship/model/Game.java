@@ -66,7 +66,7 @@ public class Game {
             isPlayer1Turn = !isPlayer1Turn;
         }
         player.addHistory(String.format("You fired %s: %s", addr,result));
-        opponent.addHistory(String.format("%s fired at %s: %s",opponent.getName(),addr,result));
+        opponent.addHistory(String.format("\"%s\" fired at %s: %s",opponent.getName(),addr,result));
     }
 
     public boolean isFinished(){
