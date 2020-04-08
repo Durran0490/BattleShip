@@ -26,6 +26,14 @@ public class SetupServlet extends HttpServlet {
         var game = (Game) req.getSession().getAttribute("game");
         player.getOwnField().clear();
 
+        String refresh = req.getParameter("refresh");
+
+        if (refresh != null) {
+            req.getRequestDispatcher("/WEB-INF/setupShips.jsp").include(req, resp);
+            System.out.println(" REFRESH");
+            return;
+        }
+
         if (selected != null) {
             messenger.write(player.getName(), "ships positions are: " + Arrays.toString(selected));
 
@@ -89,7 +97,6 @@ public class SetupServlet extends HttpServlet {
                 resp.sendRedirect("/game");
             } else {
                 req.getRequestDispatcher("/WEB-INF/waitSetup.jsp").include(req, resp);
-//                messenger.write(player.getName(), "has finished setup");
                 return;
             }
         }

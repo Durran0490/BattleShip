@@ -18,8 +18,16 @@ public class BattleShipServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var name = req.getParameter("name");
-        var player = new Player();
+        var player= new Player();
+        String name;
+
+        String cont = req.getParameter("continue");
+
+        if (cont != null) {
+            name  = ((Player) req.getSession().getAttribute("player")).getName();
+        } else {
+            name = req.getParameter("name");
+        }
         player.setName(name);
 
         var gameMgr = (GameManager) req.getServletContext().getAttribute("gameManager");
@@ -31,7 +39,7 @@ public class BattleShipServlet extends HttpServlet {
         req.getSession().setAttribute("player", player);
 
         req.getRequestDispatcher("WEB-INF/waitOpponentLogin.jsp").include(req, resp);
-        messenger.write(player.getName(),"Entered in queue");
+        messenger.write(player.getName(), "Entered in queue");
     }
 
     @Override
@@ -40,6 +48,13 @@ public class BattleShipServlet extends HttpServlet {
         var game = (Game) req.getSession().getAttribute("game");
 
         if (player == null) {
+            resp.sendRedirect("/index.html");
+            return;
+        }
+
+        String refresh = req.getParameter("refresh");
+
+        if (refresh != null) {
             resp.sendRedirect("/index.html");
             return;
         }

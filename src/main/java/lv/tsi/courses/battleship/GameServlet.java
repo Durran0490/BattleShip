@@ -22,9 +22,11 @@ public class GameServlet extends HttpServlet {
         }
         var game = (Game) request.getSession().getAttribute("game");
         var player = (Player) request.getSession().getAttribute("player");
+
         if (game.isMyTurn(player)) {
             game.fire(addr);
         }
+
         doGet(request, response);
     }
 

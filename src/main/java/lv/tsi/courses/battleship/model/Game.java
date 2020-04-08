@@ -55,7 +55,7 @@ public class Game {
             opponent.getOwnField().setState(addr,CellState.HIT);
             player.getEnemyField().setState(addr, CellState.HIT);
             result = "HIT";
-            if(opponent.getOwnField().hasShips()){
+            if(!opponent.getOwnField().hasShips()){
                 winner = player;
             }
         }else if(opponent.getOwnField().getState(addr) == CellState.EMPTY){

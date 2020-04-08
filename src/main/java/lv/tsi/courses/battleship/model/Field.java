@@ -33,7 +33,7 @@ public class Field {
             if (cells.size() != 0) {
                 listOfMisplacedCells = diagonalConnection();
             }
-            if (cells.values().stream().filter(s -> s == CellState.SHIP).count() >= 1) {
+            if (cells.values().stream().filter(s -> s == CellState.SHIP).count() >= 2) {
                 return listOfMisplacedCells.size() == 0;
             }
             return false;

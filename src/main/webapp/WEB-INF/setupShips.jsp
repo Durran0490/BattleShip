@@ -38,10 +38,11 @@
         }
 
         .text-size-20 {
-            margin-top: 50px;
-            padding-top: 40px;
+            padding-top: 5%;
+            padding-right: 2%;
             font-size: 20px;
-            text-align: center;
+            /*text-align: center;*/
+            margin: auto;
             font-weight: bold;
         }
 
@@ -63,7 +64,7 @@
             width: 100%;
             height: 100%;
             grid-template-areas: "my-header my-header my-header" "my-title my-title my-title" "left my-center-field right" "my-message-field my-message-field my-message-field" "my-footer my-footer my-footer";
-            grid-template-columns: 37% 482px 1fr;
+            grid-template-columns: 42% 482px 1fr;
             grid-template-rows: 194px 74px 411px 120px;
         }
 
@@ -86,7 +87,7 @@
         .my-center-field {
             grid-area: my-center-field;
             padding-top: 10%;
-            padding-left: 20%;
+            /*padding-left: 20%;*/
         }
 
         .right {
@@ -106,7 +107,7 @@
             font-weight: bold;
             color: rgb(181, 181, 181);
             margin-top: 20px;
-            margin-left: 7%;
+            margin-left: 3%;
             height: 50px;
             border-style: outset;
             border-color: rgb(181, 255, 249);
@@ -115,59 +116,85 @@
         }
 
         .my-button:active {
+            background-color: #d2ffba;
             transform: translateY(1px);
             border-style: inset;
             border-color: rgb(181, 255, 249);
         }
 
         .my-button:hover {
+            background-color: #d2ffba;
             color: rgb(110, 110, 110);
             box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
         }
 
-        .regular-checkbox{
-            -webkit-appearance: none;
-            background-color: #fafafa;
-            border: 1px solid #cacece;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-            padding: 12px;
-            margin: -2px -2px;
-            border-radius: 3px;
-            display: inline-block;
+        .my-button-refresh {
+            font-weight: bold;
+            color: rgb(181, 181, 181);
+            margin-top: 6px;
+            margin-left: 3%;
+            height: 28px;
+            border-style: outset;
+            border-color: rgb(181, 255, 249);
+            background-color: white;
+            width: 260px;
+        }
+
+        .my-button-refresh:active {
+            transform: translateY(1px);
+            border-style: inset;
+            border-color: rgb(181, 255, 249);
+            background-color:#fff9b5;
+        }
+
+        .my-button-refresh:hover {
+            background-color: #fff9b5;
+            color: rgb(110, 110, 110);
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .styled-checkbox {
             position: relative;
+            cursor: pointer;
+            margin-right: 6px;
+            margin-bottom: 5px;
+            /*-webkit-appearance: none;*/
+            background-color: #fafafa;
+        }
+
+        .styled-checkbox:before {
+            content: '';
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: text-top;
+            width: 22px;
+            height: 22px;
+            background: white;
             outline: none;
+            /*border: 1px solid gray;*/
         }
 
-        .regular-checkbox:active, .regular-checkbox:checked:active {
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+        .styled-checkbox:hover:before {
+            background: #6de4fc;
         }
 
-        .regular-checkbox-after:checked {
-            background-color: #03fcb6;
-            border: 1px solid #adb8c0;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-            color: #99a1a7;
-        }
-
-        /*.wrong-placed-checkbox:checked {*/
-        /*    background-color: #ff6363;*/
-        /*    border: 1px solid #adb8c0;*/
-        /*    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);*/
-        /*    color: #99a1a7;*/
+        /*.styled-checkbox:focus:before {*/
+        /*    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);*/
         /*}*/
 
-        .regular-checkbox:checked:after {
+        .styled-checkbox:checked:before {
+            background: #6dfc9f;
+        }
+
+        .styled-checkbox:checked:after {
             content: '\25C9';
-            font-size: 25px;
             position: absolute;
-            top: -3px;
-            left: 7%;
-            color: #99a1a7;
+            left: 4px;
+            bottom: -9px;
         }
 
         td {
             text-align: center;
-
         }
 
     </style>
@@ -183,7 +210,7 @@
             <p class="text-size-30 w3-center">PLEASE PLACE YOUR SHIPS</p>
         </div>
     </div>
-    <div class="my-title w3-center text-size-20 w3-text-white">PLACE YOUR SHIPS HERE</div>
+    <div class="my-title text-size-20 w3-text-white">PLACE YOUR SHIPS HERE</div>
     <div class="left"></div>
     <div class="my-center-field">
         <form action="/setup" method="post">
@@ -202,14 +229,17 @@
                         <c:forEach items="A,B,C,D,E,F,G,H,I,J" var="col">
                             <td>
                                 <c:set var="addr" value="${col}${row}"/>
-                                <input type="checkbox" class="regular-checkbox regular-checkbox-after" name="cells" value="${addr}"
-                                <c:if test="${sessionScope.player.ownField.getState(addr) == 'SHIP'}">checked</c:if>>
+                                <input type="checkbox" class="styled-checkbox" name="cells" value="${addr}"
+                                       <c:if test="${sessionScope.player.ownField.getState(addr) == 'SHIP'}">checked</c:if>>
                             </td>
                         </c:forEach>
                     </tr>
                 </c:forEach>
             </table>
             <button type="submit" class="my-button">SUBMIT POSITIONS</button>
+            <form action="/setup" method="get">
+                <button type="submit" class="my-button-refresh" name="refresh" value="refresh">REFRESH POSITIONS</button>
+            </form>
         </form>
     </div>
     <div class="right"></div>
