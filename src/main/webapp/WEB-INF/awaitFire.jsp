@@ -135,17 +135,31 @@
         td.HIT::after {
             content: '\2BBD';
         }
+        .turn-indicator{
+            background-color:#ff4238;
+            color: white;
+            opacity: 50%;
+            width: 50%;
+            height: 50px;
+            border: 0px solid darkred;
+            padding: 5px;
+            margin: auto;
+            font-size: 30px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <div class="container background-image">
     <div class="my-header">
-        <div class="w3-text-white w3-animate-opacity">
+        <div class="w3-text-white ">
             <h1 class="w3-jumbo w3-center" style="margin:auto">UNTITLED BATTLESHIP
                 GAME</h1>
             <hr class="w3-border-grey" style="margin:auto;width:30%;border-width: 1px">
-            <p class="text-size-30 w3-center">ENEMY TURN</p>
+            <p></p>
+            <p class="turn-indicator w3-center">ENEMY TURN</p>
+            <p class="text-size-30 w3-center">PLAYER: ${sessionScope.player.name}</p>
         </div>
     </div>
     <div class="left"></div>

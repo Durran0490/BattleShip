@@ -109,6 +109,7 @@
             border-color: rgb(181, 255, 249);
             background-color: white;
             width: 260px;
+            font-size: 20px;
         }
 
         .my-button:active {
@@ -167,6 +168,18 @@
             -webkit-appearance:none;
             right: 5px;
         }
+        .turn-indicator{
+            background-color:#00ff84;
+            color: white;
+            opacity: 50%;
+            width: 50%;
+            height: 50px;
+            border: 0px solid darkred;
+            padding: 5px;
+            margin: auto;
+            font-size: 30px;
+            font-weight: bold;
+        }
 
     </style>
 </head>
@@ -178,7 +191,9 @@
             <h1 class="w3-jumbo w3-center w3-animate-top" style="margin:auto">UNTITLED BATTLESHIP
                 GAME</h1>
             <hr class="w3-border-grey" style="margin:auto;width:30%;border-width: 1px">
-            <p class="text-size-30 w3-center">SINK 'EM</p>
+            <p></p>
+            <p class="w3-center turn-indicator">SINK THEM ALL</p>
+            <p class="text-size-30 w3-center">PLAYER: ${sessionScope.player.name}</p>
         </div>
     </div>
     <div class="left"></div>

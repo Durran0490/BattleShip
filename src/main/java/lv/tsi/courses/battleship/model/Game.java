@@ -5,6 +5,7 @@ public class Game {
     private Player player2;
     private boolean isPlayer1Turn = true;
     private Player winner;
+    private Player defeated;
 
     public synchronized void join(Player player){
         if(player1 == null){
@@ -57,6 +58,7 @@ public class Game {
             result = "HIT";
             if(!opponent.getOwnField().hasShips()){
                 winner = player;
+                defeated = opponent;
             }
         }else if(opponent.getOwnField().getState(addr) == CellState.EMPTY){
             opponent.getOwnField().setState(addr,CellState.MISS);
@@ -66,7 +68,7 @@ public class Game {
             isPlayer1Turn = !isPlayer1Turn;
         }
         player.addHistory(String.format("You fired %s: %s", addr,result));
-        opponent.addHistory(String.format("\"%s\" fired at %s: %s",opponent.getName(),addr,result));
+        opponent.addHistory(String.format("\"%s\" fired at %s: %s",player.getName(),addr,result));
     }
 
     public boolean isFinished(){
@@ -77,4 +79,7 @@ public class Game {
         return winner;
     }
 
+    public Player getDefeated() {
+        return defeated;
+    }
 }

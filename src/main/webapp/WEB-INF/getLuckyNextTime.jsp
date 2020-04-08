@@ -124,7 +124,9 @@
     </div>
     <div class="my-winner">
         <div class="w3-center">
-            <p class="text-size-60 w3-center w3-animate-opacity">YOU'VE LOST THIS MACH "${sessionScope.player.name}" !</p>
+            <p class="text-size-60 w3-center w3-animate-opacity">YOU'VE LOST THIS MATCH "${sessionScope.player.name}" !</p>
+            <p></p>
+            <p class="text-size-40 w3-center w3-animate-opacity">PLAYER "${sessionScope.game.getWinner().getName()}" HAS WON</p>
         </div>
     </div>
     <div class="left-space"></div>

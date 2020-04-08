@@ -41,7 +41,6 @@
             padding-top: 5%;
             padding-right: 2%;
             font-size: 20px;
-            /*text-align: center;*/
             margin: auto;
             font-weight: bold;
         }
@@ -131,7 +130,7 @@
         .my-button-refresh {
             font-weight: bold;
             color: rgb(181, 181, 181);
-            margin-top: 6px;
+            margin-top: 7px;
             margin-left: 3%;
             height: 28px;
             border-style: outset;
@@ -156,9 +155,8 @@
         .styled-checkbox {
             position: relative;
             cursor: pointer;
-            margin-right: 6px;
-            margin-bottom: 5px;
-            /*-webkit-appearance: none;*/
+            margin-right: 7px;
+            margin-bottom: 7px;
             background-color: #fafafa;
         }
 
@@ -171,7 +169,6 @@
             height: 22px;
             background: white;
             outline: none;
-            /*border: 1px solid gray;*/
         }
 
         .styled-checkbox:hover:before {
@@ -204,6 +201,7 @@
                 GAME</h1>
             <hr class="w3-border-grey" style="margin:auto;width:30%;border-width: 1px">
             <p class="text-size-30 w3-center">PLEASE PLACE YOUR SHIPS</p>
+            <p class="text-size-30 w3-center">PLAYER: ${sessionScope.player.name}</p>
         </div>
     </div>
     <div class="my-title text-size-20 w3-text-white">PLACE YOUR SHIPS HERE</div>
